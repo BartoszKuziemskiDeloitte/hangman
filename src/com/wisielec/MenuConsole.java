@@ -33,6 +33,7 @@ public class MenuConsole {
 
     private static void printGame() {
         Game game = new Game(Database.getRandomPassword());
+        System.out.println("Password: ");
         System.out.println(game.getGuessedPassword());
 
         while (game.getHealth() > 0) {
@@ -40,8 +41,10 @@ public class MenuConsole {
             System.out.println("Type letter to guess: ");
             char letter = getUserInput().charAt(0);
             game.checkLetter(letter);
+            System.out.println("Password: ");
             System.out.println(game.getGuessedPassword());
-            if (game.checkIfWin(letter)) {
+            Human.printHuman(game.getHealth());
+            if (game.checkIfWin()) {
                 System.out.println("You have won!");
                 return;
             }

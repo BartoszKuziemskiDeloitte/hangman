@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Game {
 
-    private static final int maxHealth = 5;
+    private static final int maxHealth = 8;
     private final String password;
     private String guessedPassword;
     private int health;
@@ -15,6 +15,14 @@ public class Game {
         this.password = password;
         this.health = maxHealth;
         initGuessedPassword();
+    }
+
+    private void initGuessedPassword() {
+        char[] charsPassword = new char[password.length()];
+        for (int i = 0; i < password.length(); i++) {
+            charsPassword[i] = '_';
+        }
+        guessedPassword = String.copyValueOf(charsPassword);
     }
 
     public int getHealth() {
@@ -34,13 +42,6 @@ public class Game {
         setGuessedPassword();
     }
 
-    private void initGuessedPassword() {
-        char[] charsPassword = password.toCharArray();
-        for (int i = 0; i < password.length(); i++) {
-            charsPassword[i] = '_';
-        }
-        guessedPassword = String.copyValueOf(charsPassword);
-    }
 
     public void setGuessedPassword() {
         char[] charsPassword = password.toCharArray();
@@ -62,7 +63,7 @@ public class Game {
         guessedPassword = String.copyValueOf(output);
     }
 
-    public boolean checkIfWin(char letter) {
+    public boolean checkIfWin() {
         return guessedPassword.equals(password);
     }
 }
