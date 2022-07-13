@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Wisielec {
+public class Database {
 
     private static final List<String> passwords = new ArrayList<>();
     private static final String filename = "passwords.txt";
@@ -32,9 +32,7 @@ public class Wisielec {
     public static String getRandomPassword() {
         readPasswords();
         Random random = new Random();
-        Integer passwordNumber = random.nextInt(passwords.size());
-
-        System.out.println(passwordNumber);
+        int passwordNumber = random.nextInt(passwords.size());
 
         return passwords.get(passwordNumber);
     }

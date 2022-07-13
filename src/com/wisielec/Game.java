@@ -1,0 +1,60 @@
+package com.wisielec;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Game {
+
+    private static final int maxHealth = 5;
+    private final String password;
+    private int health;
+    private final List<Character> guessedChars = new ArrayList<>();
+
+    public Game(String password) {
+        this.password = password;
+        this.health = maxHealth;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public String checkLetter(char letter) {
+        if (password.contains(String.valueOf(letter))) {
+            guessedChars.add(letter);
+        } else {
+            health--;
+        }
+        return getUserPassword();
+    }
+
+    public String getUserPassword() {
+        char[] charsPassword = password.toCharArray();
+        char[] output = charsPassword;
+        if (guessedChars.size() == 0) {
+            for (int i = 0; i < charsPassword.length; i++) {
+                output[i] = '_';
+            }
+        }
+        for (int i = 0; i < charsPassword.length; i++) {
+            char out = '_';
+            for (int j = 0; j < guessedChars.size(); j++) {
+                if (charsPassword[i] == guessedChars.get(j)) {
+                    out = guessedChars.get(j);
+                    break;
+                }
+            }
+            if (charsPassword[i] == ' ') {
+                out = ' ';
+            }
+            output[i] = out;
+
+        }
+        return String.copyValueOf(output);
+    }
+
+
+    public boolean checkIfWin(char letter) {
+        return checkLetter(letter).equals(password);
+    }
+}

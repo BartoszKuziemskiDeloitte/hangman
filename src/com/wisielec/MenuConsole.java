@@ -9,7 +9,7 @@ public class MenuConsole {
     public static void printMenu() {
         while (true) {
             System.out.println("Choose option: ");
-            System.out.println("1. Get password");
+            System.out.println("1. Play");
             System.out.println("2. Add password");
             System.out.println("3. Quit");
 
@@ -17,11 +17,11 @@ public class MenuConsole {
 
             switch (menu) {
                 case 1:
-                    System.out.println(Wisielec.getRandomPassword());
+                    printGame();
                     break;
                 case 2:
                     System.out.println("Please enter new password to add");
-                    Wisielec.addPassword(getUserInput());
+                    Database.addPassword(getUserInput());
                     break;
                 case 3:
                     return;
@@ -30,6 +30,22 @@ public class MenuConsole {
             }
         }
     }
+
+    private static void printGame() {
+        Game game = new Game(Database.getRandomPassword());
+        System.out.println(game.getUserPassword());
+        while (game.getHealth() > 0) {
+            System.out.println("Type letter to guess: ");
+            char guess = getUserInput().charAt(0);
+            System.out.println(game.checkLetter(guess));
+            if (game.checkIfWin(guess)) {
+                System.out.println("You have won!");
+                return;
+            }
+            System.out.println("You have " + game.getHealth() + " guesses left");
+        }
+    }
+
 
     private static String getUserInput() {
         String input = "";
