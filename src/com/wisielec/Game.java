@@ -7,35 +7,45 @@ public class Game {
 
     private static final int maxHealth = 5;
     private final String password;
+    private String guessedPassword;
     private int health;
     private final List<Character> guessedChars = new ArrayList<>();
 
     public Game(String password) {
         this.password = password;
         this.health = maxHealth;
+        initGuessedPassword();
     }
 
     public int getHealth() {
         return health;
     }
 
-    public String checkLetter(char letter) {
+    public String getGuessedPassword() {
+        return guessedPassword;
+    }
+
+    public void checkLetter(char letter) {
         if (password.contains(String.valueOf(letter))) {
             guessedChars.add(letter);
         } else {
             health--;
         }
-        return getUserPassword();
+        setGuessedPassword();
     }
 
-    public String getUserPassword() {
+    private void initGuessedPassword() {
+        char[] charsPassword = password.toCharArray();
+        for (int i = 0; i < password.length(); i++) {
+            charsPassword[i] = '_';
+        }
+        guessedPassword = String.copyValueOf(charsPassword);
+    }
+
+    public void setGuessedPassword() {
         char[] charsPassword = password.toCharArray();
         char[] output = charsPassword;
-        if (guessedChars.size() == 0) {
-            for (int i = 0; i < charsPassword.length; i++) {
-                output[i] = '_';
-            }
-        }
+
         for (int i = 0; i < charsPassword.length; i++) {
             char out = '_';
             for (int j = 0; j < guessedChars.size(); j++) {
@@ -48,13 +58,11 @@ public class Game {
                 out = ' ';
             }
             output[i] = out;
-
         }
-        return String.copyValueOf(output);
+        guessedPassword = String.copyValueOf(output);
     }
 
-
     public boolean checkIfWin(char letter) {
-        return checkLetter(letter).equals(password);
+        return guessedPassword.equals(password);
     }
 }

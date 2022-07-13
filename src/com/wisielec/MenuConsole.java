@@ -33,17 +33,20 @@ public class MenuConsole {
 
     private static void printGame() {
         Game game = new Game(Database.getRandomPassword());
-        System.out.println(game.getUserPassword());
+        System.out.println(game.getGuessedPassword());
+
         while (game.getHealth() > 0) {
+            System.out.println("You have " + game.getHealth() + " guesses left");
             System.out.println("Type letter to guess: ");
-            char guess = getUserInput().charAt(0);
-            System.out.println(game.checkLetter(guess));
-            if (game.checkIfWin(guess)) {
+            char letter = getUserInput().charAt(0);
+            game.checkLetter(letter);
+            System.out.println(game.getGuessedPassword());
+            if (game.checkIfWin(letter)) {
                 System.out.println("You have won!");
                 return;
             }
-            System.out.println("You have " + game.getHealth() + " guesses left");
         }
+        System.out.println("You have lost");
     }
 
 
