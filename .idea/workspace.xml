@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709e216c-b7b3-4243-a5a7-e2d12ecad093" name="Changes" comment="game logic">
-      <change afterPath="$PROJECT_DIR$/src/com/wisielec/Human.java" afterDir="false" />
+    <list default="true" id="709e216c-b7b3-4243-a5a7-e2d12ecad093" name="Changes" comment="human printing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wisielec/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wisielec/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wisielec/MenuConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/MenuConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657716370430</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="human printing">
+      <created>1657723356846</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657723356846</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="password management" />
     <MESSAGE value="game logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="game logic" />
+    <MESSAGE value="human printing" />
+    <option name="LAST_COMMIT_MESSAGE" value="human printing" />
   </component>
 </project>

@@ -18,9 +18,11 @@ public class Game {
     }
 
     private void initGuessedPassword() {
-        char[] charsPassword = new char[password.length()];
+        char[] charsPassword = password.toCharArray();
         for (int i = 0; i < password.length(); i++) {
-            charsPassword[i] = '_';
+            if (charsPassword[i] != ' ') {
+                charsPassword[i] = '_';
+            }
         }
         guessedPassword = String.copyValueOf(charsPassword);
     }

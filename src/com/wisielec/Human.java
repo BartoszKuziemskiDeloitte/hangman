@@ -57,8 +57,10 @@ public class Human {
                 System.out.println(HUMAN_2);
                 System.out.println(HUMAN_3);
                 System.out.println(HUMAN_4);
-                System.out.println(HUMAN_5);
+                System.out.println(HUMAN_6);
                 System.out.println(HUMAN_8);
+                break;
+            default:
                 break;
         }
 

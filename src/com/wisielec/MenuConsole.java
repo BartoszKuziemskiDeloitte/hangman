@@ -13,7 +13,12 @@ public class MenuConsole {
             System.out.println("2. Add password");
             System.out.println("3. Quit");
 
-            int menu = Integer.parseInt(getUserInput());
+            int menu = 0;
+            try {
+                menu = Integer.parseInt(getUserInput());
+            } catch (NumberFormatException exception) {
+                System.out.println("Please enter correct values");
+            }
 
             switch (menu) {
                 case 1:
