@@ -19,7 +19,7 @@ public class MenuConsole {
 
             switch (menu) {
                 case 1:
-                    printGame();
+                    initGame();
                     break;
                 case 2:
                     addPassword();
@@ -39,14 +39,28 @@ public class MenuConsole {
         System.out.println("3. Quit");
     }
 
-    private static void printGame() {
-        Game game = new Game(Database.getRandomPassword());
-        printGuessedPassword(game);
+    private static void initGame() {
+        String randomPassword = Database.getRandomPassword();
+        if (randomPassword == null) {
+            System.out.println("There are no passwords in the file. Please add at least one");
+            return;
+        }
+        Game game = new Game(randomPassword);
 
+        printGame(game);
+    }
+
+    private static void printGame(Game game) {
+        printGuessedPassword(game);
         while (game.getHealth() > 0) {
             System.out.println("You have " + game.getHealth() + " guesses left");
             System.out.println("Type letter to guess: ");
-            char letter = getUserInput().charAt(0);
+            String userInput = getUserInput();
+            if (!isInputAChar(userInput)) {
+                System.out.println("Please write only one letter");
+                continue;
+            }
+            char letter = userInput.charAt(0);
             game.checkLetter(letter);
             printGuessedPassword(game);
             Human.printHuman(game.getHealth());
@@ -56,6 +70,10 @@ public class MenuConsole {
             }
         }
         System.out.println("You have lost");
+    }
+
+    private static boolean isInputAChar(String userInput) {
+        return userInput.length() <= 1;
     }
 
     private static void printGuessedPassword(Game game) {

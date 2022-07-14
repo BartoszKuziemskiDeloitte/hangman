@@ -35,16 +35,19 @@ public class Database {
 
     public static String getRandomPassword() {
         readPasswords();
+        if (passwords.isEmpty()) {
+            return null;
+        }
+
         Random random = new Random();
         int passwordNumber = random.nextInt(passwords.size());
-
         return passwords.get(passwordNumber);
     }
 
     public static boolean isPasswordCorrect(String password) {
         char[] chars = password.toCharArray();
         for (char c : chars) {
-            if(!Character.isLetter(c) && c != ' ') {
+            if (!Character.isLetter(c) && c != ' ') {
                 return false;
             }
         }

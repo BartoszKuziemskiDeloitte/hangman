@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709e216c-b7b3-4243-a5a7-e2d12ecad093" name="Changes" comment="menu console fix">
+    <list default="true" id="709e216c-b7b3-4243-a5a7-e2d12ecad093" name="Changes" comment="add password fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wisielec/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wisielec/MenuConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/MenuConsole.java" afterDir="false" />
@@ -22,7 +22,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/passwords.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/wisielec/Database.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/wisielec/Game.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/com/wisielec/Human.java" root0="FORCE_HIGHLIGHTING" />
@@ -106,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657784423767</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add password fix">
+      <created>1657799939580</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657799939580</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +131,18 @@
     <MESSAGE value="game logic" />
     <MESSAGE value="human printing" />
     <MESSAGE value="menu console fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu console fix" />
+    <MESSAGE value="add password fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="add password fix" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/wisielec/MenuConsole.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
