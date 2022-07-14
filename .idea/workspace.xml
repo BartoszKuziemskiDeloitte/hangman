@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709e216c-b7b3-4243-a5a7-e2d12ecad093" name="Changes" comment="human printing">
+    <list default="true" id="709e216c-b7b3-4243-a5a7-e2d12ecad093" name="Changes" comment="menu console fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wisielec/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wisielec/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wisielec/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wisielec/MenuConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wisielec/MenuConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +21,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/passwords.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/wisielec/Database.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/wisielec/Game.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/wisielec/Human.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/wisielec/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/com/wisielec/MenuConsole.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -33,13 +40,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/bkuziemski/Downloads/getting-started-master/getting-started-master/app"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="com.wisielec.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.wisielec.Main" />
@@ -91,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657723356846</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="menu console fix">
+      <created>1657784423767</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657784423767</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +124,7 @@
     <MESSAGE value="password management" />
     <MESSAGE value="game logic" />
     <MESSAGE value="human printing" />
-    <option name="LAST_COMMIT_MESSAGE" value="human printing" />
+    <MESSAGE value="menu console fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu console fix" />
   </component>
 </project>

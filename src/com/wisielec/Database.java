@@ -10,12 +10,16 @@ public class Database {
     private static final List<String> passwords = new ArrayList<>();
     private static final String filename = "passwords.txt";
 
-    public static void addPassword(String password) {
+    public static boolean addPassword(String password) {
+        if (!isPasswordCorrect(password)) {
+            return false;
+        }
         try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(filename, true)))) {
             out.println(password);
         } catch (IOException e) {
             System.out.println("Cannot add the password to file");
         }
+        return true;
     }
 
     private static void readPasswords() {
@@ -35,6 +39,16 @@ public class Database {
         int passwordNumber = random.nextInt(passwords.size());
 
         return passwords.get(passwordNumber);
+    }
+
+    public static boolean isPasswordCorrect(String password) {
+        char[] chars = password.toCharArray();
+        for (char c : chars) {
+            if(!Character.isLetter(c) && c != ' ') {
+                return false;
+            }
+        }
+        return true;
     }
 
 

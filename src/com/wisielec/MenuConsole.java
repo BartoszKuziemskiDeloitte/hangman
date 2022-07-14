@@ -8,10 +8,7 @@ public class MenuConsole {
 
     public static void printMenu() {
         while (true) {
-            System.out.println("Choose option: ");
-            System.out.println("1. Play");
-            System.out.println("2. Add password");
-            System.out.println("3. Quit");
+            printOptions();
 
             int menu = 0;
             try {
@@ -25,8 +22,7 @@ public class MenuConsole {
                     printGame();
                     break;
                 case 2:
-                    System.out.println("Please enter new password to add");
-                    Database.addPassword(getUserInput());
+                    addPassword();
                     break;
                 case 3:
                     return;
@@ -36,18 +32,23 @@ public class MenuConsole {
         }
     }
 
+    private static void printOptions() {
+        System.out.println("Choose option: ");
+        System.out.println("1. Play");
+        System.out.println("2. Add password");
+        System.out.println("3. Quit");
+    }
+
     private static void printGame() {
         Game game = new Game(Database.getRandomPassword());
-        System.out.println("Password: ");
-        System.out.println(game.getGuessedPassword());
+        printGuessedPassword(game);
 
         while (game.getHealth() > 0) {
             System.out.println("You have " + game.getHealth() + " guesses left");
             System.out.println("Type letter to guess: ");
             char letter = getUserInput().charAt(0);
             game.checkLetter(letter);
-            System.out.println("Password: ");
-            System.out.println(game.getGuessedPassword());
+            printGuessedPassword(game);
             Human.printHuman(game.getHealth());
             if (game.checkIfWin()) {
                 System.out.println("You have won!");
@@ -55,6 +56,18 @@ public class MenuConsole {
             }
         }
         System.out.println("You have lost");
+    }
+
+    private static void printGuessedPassword(Game game) {
+        System.out.println("Password: ");
+        System.out.println(game.getGuessedPassword());
+    }
+
+    private static void addPassword() {
+        System.out.println("Please enter new password to add");
+        if (!Database.addPassword(getUserInput())) {
+            System.out.println("Password can contain letters only");
+        }
     }
 
 
