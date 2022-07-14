@@ -55,13 +55,12 @@ public class MenuConsole {
         while (game.getHealth() > 0) {
             System.out.println("You have " + game.getHealth() + " guesses left");
             System.out.println("Type letter to guess: ");
-            String userInput = getUserInput();
-            if (!isInputAChar(userInput)) {
+            Character userInput = getUserChar();
+            if (userInput == null) {
                 System.out.println("Please write only one letter");
                 continue;
             }
-            char letter = userInput.charAt(0);
-            game.checkLetter(letter);
+            game.checkLetter(userInput);
             printGuessedPassword(game);
             Human.printHuman(game.getHealth());
             if (game.checkIfWin()) {
@@ -72,8 +71,12 @@ public class MenuConsole {
         System.out.println("You have lost");
     }
 
-    private static boolean isInputAChar(String userInput) {
-        return userInput.length() <= 1;
+    private static Character getUserChar() {
+        String userInput = getUserInput();
+        if (userInput.length() != 1) {
+            return null;
+        }
+        return userInput.charAt(0);
     }
 
     private static void printGuessedPassword(Game game) {
@@ -88,7 +91,6 @@ public class MenuConsole {
         }
     }
 
-
     private static String getUserInput() {
         String input = "";
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -97,7 +99,7 @@ public class MenuConsole {
         } catch (IOException exception) {
             System.out.println("Please enter correct values");
         }
-        return input;
+        return input.toLowerCase();
     }
 
 }
