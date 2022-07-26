@@ -7,8 +7,8 @@ public class Database {
 
     private static Connection connection;
     private static final String DB_NAME = "jdbc-video";
-    private static final String TABLE_NAME = "passwords";
-    private static final String COLUMN_NAME = "password";
+    private static final String DB_TABLE_NAME = "passwords";
+    private static final String DB_COLUMN_NAME = "password";
 
     private static void setConnection() throws SQLException {
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc-video?serverTimezone=GMT&useSSL=false",
@@ -22,10 +22,10 @@ public class Database {
         try {
             setConnection();
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from " + TABLE_NAME + " where id = " + passwordId);
+            ResultSet resultSet = statement.executeQuery("select * from " + DB_TABLE_NAME + " where id = " + passwordId);
 
             if (resultSet.next()) {
-                return resultSet.getString(COLUMN_NAME);
+                return resultSet.getString(DB_COLUMN_NAME);
             }
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -33,11 +33,18 @@ public class Database {
         return null;
     }
 
+    private static boolean checkIfContainLettersOnly(String password) {
+        return password.chars().allMatch(Character::isLetter);
+    }
+
     public static boolean addPassword(String password) {
+        if(!checkIfContainLettersOnly(password)) {
+            return false;
+        }
         ResultSet resultSet = null;
         int passwordId = 0;
         // INSERT INTO `db-name`.`table` (password) VALUES('text');
-        String sql = "INSERT INTO " + "`" + DB_NAME + "`" + "." + "`" + TABLE_NAME + "`" + "(" + COLUMN_NAME + ")" + "VALUES(?)";
+        String sql = "INSERT INTO " + "`" + DB_NAME + "`" + "." + "`" + DB_TABLE_NAME + "`" + "(" + DB_COLUMN_NAME + ")" + "VALUES(?)";
         try {
             setConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -62,6 +69,17 @@ public class Database {
             }
         }
         return passwordId > 0;
+    }
+
+    public static void deleteAllPasswords() {
+        String sql = "TRUNCATE " + "`" + DB_NAME + "`.`" + DB_TABLE_NAME + "`";
+        try {
+            setConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.execute();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
     }
 
     // TODO: 26.07.2022 delete all records // TRUNCATE `jdbc-video`.`passwords`;

@@ -25,6 +25,9 @@ public class MenuConsole {
                     addPassword();
                     break;
                 case 3:
+                    deleteAllPassword();
+                    break;
+                case 4:
                     return;
                 default:
                     break;
@@ -32,17 +35,22 @@ public class MenuConsole {
         }
     }
 
+    private static void deleteAllPassword() {
+        Database.deleteAllPasswords();
+    }
+
     private static void printOptions() {
         System.out.println("Choose option: ");
         System.out.println("1. Play");
         System.out.println("2. Add password");
-        System.out.println("3. Quit");
+        System.out.println("3. Delete all passwords");
+        System.out.println("4. Quit");
     }
 
     private static void initGame() {
         String randomPassword = Database.getPassword();
         if (randomPassword == null) {
-            System.out.println("There are no passwords in the file. Please add at least one");
+            System.out.println("There are no passwords in the database. Please add at least one");
             return;
         }
         Game game = new Game(randomPassword);
