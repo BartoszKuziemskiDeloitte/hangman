@@ -2,6 +2,8 @@ package org.example;
 
 import java.sql.*;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Database {
 
@@ -16,9 +18,29 @@ public class Database {
                 "root");
     }
 
+    private static int countDatabaseRows() {
+        String sql = "select count(*) from " + DB_TABLE_NAME;
+        try {
+            setConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("count(*)");
+            }
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return 0;
+    }
+
     public static String getPassword() {
         Random random = new Random();
-        int passwordId = random.nextInt(3) + 1; // TODO: 25.07.2022 get table size
+        int dbRowsNumber = countDatabaseRows();
+        if (dbRowsNumber == 0) {
+            return null;
+        }
+        int passwordId = random.nextInt(dbRowsNumber) + 1; // range (1 : rowsNumber)
         try {
             setConnection();
             Statement statement = connection.createStatement();
@@ -34,7 +56,10 @@ public class Database {
     }
 
     private static boolean checkIfContainLettersOnly(String password) {
-        return password.chars().allMatch(Character::isLetter);
+        // return password.chars().allMatch(Character::isLetter);
+        Pattern p = Pattern.compile("^[ A-Za-z]+$");
+        Matcher m = p.matcher(password);
+        return m.matches();
     }
 
     public static boolean addPassword(String password) {
@@ -81,6 +106,4 @@ public class Database {
             exception.printStackTrace();
         }
     }
-
-    // TODO: 26.07.2022 delete all records // TRUNCATE `jdbc-video`.`passwords`;
 }

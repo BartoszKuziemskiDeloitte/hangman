@@ -95,7 +95,7 @@ public class MenuConsole {
     private static void addPassword() {
         System.out.println("Please enter new password to add");
         if (!Database.addPassword(getUserInput())) {
-            System.out.println("Password can contain letters only");
+            System.out.println("Password can contain letters and spaces only");
         }
     }
 

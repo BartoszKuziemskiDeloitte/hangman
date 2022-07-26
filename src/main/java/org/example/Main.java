@@ -5,8 +5,5 @@ public class Main {
 
         MenuConsole.printMenu();
 
-        //System.out.println(Database.getPassword());
-        //Database.addPassword("bb");
-
     }
 }
