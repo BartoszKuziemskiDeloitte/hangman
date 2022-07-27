@@ -63,7 +63,7 @@ public class Database {
     }
 
     public static boolean addPassword(String password) {
-        if(!checkIfContainLettersOnly(password)) {
+        if (!checkIfContainLettersOnly(password)) {
             return false;
         }
         ResultSet resultSet = null;
